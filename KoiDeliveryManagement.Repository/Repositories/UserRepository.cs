@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KoiDeliveryManagement.Repository.Base;
+using KoiDeliveryManagement.Repository.Model;
 
 namespace KoiDeliveryManagement.Repository.Repositories
 {
-    internal class UserRepository
+    public class UserRepository : GenericRepository<User>
     {
+
     }
 }
