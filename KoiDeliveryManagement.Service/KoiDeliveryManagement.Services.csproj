@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KoiDeliveryManagement.Repository\KoiDeliveryManagement.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

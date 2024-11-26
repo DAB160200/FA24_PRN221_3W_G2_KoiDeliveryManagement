@@ -22,7 +22,7 @@ namespace KoiDeliveryManagement.Repository
         private string GetConnectionString()
         {
             IConfiguration config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json", true, true)
                 .Build();
             var strConn = config["ConnectionStrings:DefaultConnection"];
