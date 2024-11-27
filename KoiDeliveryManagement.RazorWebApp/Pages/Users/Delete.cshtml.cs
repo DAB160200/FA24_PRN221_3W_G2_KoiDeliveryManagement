@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
 {
     public class DeleteModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly UserService _userService;
 
-        public DeleteModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public DeleteModel(UserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         [BindProperty]
@@ -29,7 +30,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
                 return NotFound();
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user = await _userService.GetById(id.Value);
 
             if (user == null)
             {
@@ -49,12 +50,11 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user = await _userService.GetById(id.Value);
             if (user != null)
             {
                 User = user;
-                _context.Users.Remove(User);
-                await _context.SaveChangesAsync();
+                await _userService.Delete(User);
             }
 
             return RedirectToPage("./Index");

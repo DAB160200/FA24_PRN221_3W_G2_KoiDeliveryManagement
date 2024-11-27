@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
 {
     public class DetailsModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly UserService _userService;
 
-        public DetailsModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public DetailsModel(UserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         public User User { get; set; } = default!;
@@ -28,7 +29,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
                 return NotFound();
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user = await _userService.GetById(id.Value);
             if (user == null)
             {
                 return NotFound();

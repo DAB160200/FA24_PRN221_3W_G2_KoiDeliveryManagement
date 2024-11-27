@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
     public class DeleteModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly TransactionService _transactionService;
 
-        public DeleteModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public DeleteModel(TransactionService transactionService)
         {
-            _context = context;
+            _transactionService = transactionService;
         }
 
         [BindProperty]
@@ -29,7 +30,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return NotFound();
             }
 
-            var transaction = await _context.Transactions.FirstOrDefaultAsync(m => m.Id == id);
+            var transaction = await _transactionService.GetById(id.Value);
 
             if (transaction == null)
             {
@@ -49,12 +50,11 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return NotFound();
             }
 
-            var transaction = await _context.Transactions.FindAsync(id);
+            var transaction = await _transactionService.GetById(id.Value);
             if (transaction != null)
             {
                 Transaction = transaction;
-                _context.Transactions.Remove(Transaction);
-                await _context.SaveChangesAsync();
+                await _transactionService.Delete(transaction);
             }
 
             return RedirectToPage("./Index");

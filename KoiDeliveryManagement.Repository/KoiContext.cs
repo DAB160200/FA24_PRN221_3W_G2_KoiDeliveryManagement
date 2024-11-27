@@ -32,6 +32,7 @@ namespace KoiDeliveryManagement.Repository
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlServer(GetConnectionString());
 
+        #region Entities
         public DbSet<Order> Orders { get; set; }
         public DbSet<Fish> Fishes { get; set; }
         public DbSet<Service> Services { get; set; }
@@ -39,11 +40,13 @@ namespace KoiDeliveryManagement.Repository
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            #region Configure Relationships
             // Configure relationships and keys
             modelBuilder.Entity<Certificate>()
                 .HasOne(c => c.Fish)
@@ -99,6 +102,9 @@ namespace KoiDeliveryManagement.Repository
                 .HasForeignKey<Supplier>(s => s.OwnerId)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            #endregion
+
+            #region Configure Identity
             modelBuilder.Entity<User>()
             .Property(b => b.Id)
             .ValueGeneratedOnAdd()
@@ -138,7 +144,9 @@ namespace KoiDeliveryManagement.Repository
             .Property(b => b.Id)
             .ValueGeneratedOnAdd()
             .UseIdentityColumn();
+            #endregion
 
+            #region Seed Data User
             modelBuilder.Entity<User>().HasData(
             new User
             {
@@ -208,7 +216,9 @@ namespace KoiDeliveryManagement.Repository
             Role = "Supplier"
             }
             );
+            #endregion
 
+            #region Seed Data Supplier
             modelBuilder.Entity<Supplier>().HasData(
             new Supplier
             {   
@@ -231,7 +241,9 @@ namespace KoiDeliveryManagement.Repository
             OwnerId = 7
             }
             );
+            #endregion
 
+            #region Seed Data Fish
             modelBuilder.Entity<Fish>().HasData(
             new Fish
             {
@@ -309,7 +321,9 @@ namespace KoiDeliveryManagement.Repository
             ImageUrl = "https://example.com/images/rainbow1.jpg"
             }
             );
+            #endregion
 
+            #region Seed Data Service
             modelBuilder.Entity<Service>().HasData(
                 new Service
                 {
@@ -397,7 +411,9 @@ namespace KoiDeliveryManagement.Repository
                     DiscountPercentage = 20.0f
                 }
             );
+            #endregion
 
+            #region Seed Data Certificate
             modelBuilder.Entity<Certificate>().HasData(
         new Certificate
         {
@@ -448,7 +464,9 @@ namespace KoiDeliveryManagement.Repository
             AuthorityContact = "456-789-1234"
         }
         );
+            #endregion
 
+            #region Seed Data Order
             modelBuilder.Entity<Order>().HasData(
         new Order
         {
@@ -530,7 +548,9 @@ namespace KoiDeliveryManagement.Repository
             IsGift = false,
             UniqueTrackingId = Guid.NewGuid()
         });
+            #endregion
 
+            #region Seed Data Delivery
             modelBuilder.Entity<Delivery>().HasData(
         new Delivery
         {
@@ -602,7 +622,9 @@ namespace KoiDeliveryManagement.Repository
             Feedback = "Customer highly satisfied with the delivery and fish condition.",
             Rating = 5
         });
+            #endregion
 
+            #region Seed Data Transaction
             modelBuilder.Entity<Transaction>().HasData(
         new Transaction
         {
@@ -680,6 +702,7 @@ namespace KoiDeliveryManagement.Repository
             RefundAmount = null
         }
     );
+            #endregion
         }
     }
 }
