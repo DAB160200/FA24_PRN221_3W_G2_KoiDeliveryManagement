@@ -8,16 +8,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
 {
     public class EditModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly UserService _userService;
 
-        public EditModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public EditModel(UserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         [BindProperty]
@@ -30,12 +31,30 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
                 return NotFound();
             }
 
-            var user =  await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            var user =  await _userService.GetById(id.Value);
             if (user == null)
             {
                 return NotFound();
             }
+
             User = user;
+
+            var selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem { Value = "Customer", Text = "Customer" });
+            selectList.Add(new SelectListItem { Value = "Supplier", Text = "Supplier" });
+            selectList.Add(new SelectListItem { Value = "SystemStaff", Text = "System Staff" });
+            selectList.Add(new SelectListItem { Value = "Delivery", Text = "Delivery" });
+
+            foreach (var item in selectList)
+            {
+                if (item.Value == User.Role)
+                {
+                    item.Selected = true;
+                    break;
+                }
+            }
+
+            ViewData["RoleOptions"] = selectList;
             return Page();
         }
 
@@ -43,16 +62,14 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(User).State = EntityState.Modified;
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _userService.Update(User);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -71,7 +88,13 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
 
         private bool UserExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            bool check = false;
+            var user = _userService.GetById(id).Result;
+            if (user != null)
+            {
+                check = true;
+            }
+            return check;
         }
     }
 }

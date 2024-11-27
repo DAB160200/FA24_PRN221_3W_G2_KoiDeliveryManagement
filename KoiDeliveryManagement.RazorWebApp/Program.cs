@@ -1,9 +1,16 @@
+using KoiDeliveryManagement.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<TransactionService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

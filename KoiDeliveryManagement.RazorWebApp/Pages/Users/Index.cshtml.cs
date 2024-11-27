@@ -7,23 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
 {
     public class IndexModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly UserService _userService;
 
-        public IndexModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public IndexModel(UserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         public IList<User> User { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            User = await _context.Users.ToListAsync();
+            User = await _userService.GetAll();
         }
     }
 }
