@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
     public class DetailsModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly TransactionService _transactionService;
 
-        public DetailsModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public DetailsModel(TransactionService transactionService)
         {
-            _context = context;
+            _transactionService = transactionService;
         }
 
         public Transaction Transaction { get; set; } = default!;
@@ -28,7 +29,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return NotFound();
             }
 
-            var transaction = await _context.Transactions.FirstOrDefaultAsync(m => m.Id == id);
+            var transaction = await _transactionService.GetById(id.Value);
             if (transaction == null)
             {
                 return NotFound();

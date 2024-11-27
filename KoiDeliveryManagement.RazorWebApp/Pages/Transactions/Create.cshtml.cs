@@ -7,21 +7,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
     public class CreateModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly OrderService _orderService;
+        private readonly TransactionService _transactionService;
 
-        public CreateModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public CreateModel(OrderService orderService, TransactionService transactionService)
         {
-            _context = context;
+            _orderService = orderService;
+            _transactionService = transactionService;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet()
         {
-        ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id");
+            var orders = await _orderService.GetAllAsync();
+            ViewData["OrderId"] = new SelectList(orders, "Id", "Id");
             return Page();
         }
 
@@ -36,8 +40,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return Page();
             }
 
-            _context.Transactions.Add(Transaction);
-            await _context.SaveChangesAsync();
+            await _transactionService.Create(Transaction);
 
             return RedirectToPage("./Index");
         }

@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
     public class EditModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly OrderService _orderService;
+        private readonly TransactionService _transactionService;
 
-        public EditModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public EditModel(OrderService orderService, TransactionService transactionService)
         {
-            _context = context;
+            _orderService = orderService;
+            _transactionService = transactionService;
         }
 
         [BindProperty]
@@ -30,13 +33,15 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return NotFound();
             }
 
-            var transaction =  await _context.Transactions.FirstOrDefaultAsync(m => m.Id == id);
+            var transaction =  await _transactionService.GetById(id.Value);
             if (transaction == null)
             {
                 return NotFound();
             }
             Transaction = transaction;
-           ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id");
+
+            var orders = await _orderService.GetAllAsync();
+           ViewData["OrderId"] = new SelectList(orders, "Id", "Id");
             return Page();
         }
 
@@ -49,11 +54,10 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return Page();
             }
 
-            _context.Attach(Transaction).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _transactionService.Update(Transaction);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -72,7 +76,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 
         private bool TransactionExists(int id)
         {
-            return _context.Transactions.Any(e => e.Id == id);
+            return _transactionService.GetById(id) != null;
         }
     }
 }

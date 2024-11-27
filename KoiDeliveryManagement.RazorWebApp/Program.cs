@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TransactionService>();
+builder.Services.AddScoped<OrderService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
