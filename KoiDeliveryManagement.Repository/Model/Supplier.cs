@@ -26,6 +26,15 @@ namespace KoiDeliveryManagement.Repository.Model
         [MaxLength(500)]
         public string? WebsiteUrl { get; set; }
 
+        [MaxLength(10)]
+        public string? FaxNumber { get; set; }
+
+        [MaxLength(10)]
+        public string? TaxCode { get; set; }
+
+        [MaxLength(10)]
+        public string? Description { get; set; }
+
         [Required]
         public int OwnerId { get; set; }
 
