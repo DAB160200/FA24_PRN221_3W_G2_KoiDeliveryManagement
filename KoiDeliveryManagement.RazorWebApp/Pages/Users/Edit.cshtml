@@ -42,57 +42,12 @@
                 <input asp-for="User.PasswordHash" class="form-control" />
                 <span asp-validation-for="User.PasswordHash" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="User.IsEmailVerified" /> @Html.DisplayNameFor(model => model.User.IsEmailVerified)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.ProfileImageUrl" class="control-label"></label>
-                <input asp-for="User.ProfileImageUrl" class="form-control" />
-                <span asp-validation-for="User.ProfileImageUrl" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="User.Role" class="control-label"></label>
-                <input asp-for="User.Role" class="form-control" />
+                <select asp-for="User.Role" asp-items="ViewBag.RoleOptions" class="form-control"></select>
                 <span asp-validation-for="User.Role" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="User.Id" />
-            <div class="form-group">
-                <label asp-for="User.CreatedBy" class="control-label"></label>
-                <input asp-for="User.CreatedBy" class="form-control" />
-                <span asp-validation-for="User.CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.CreatedTime" class="control-label"></label>
-                <input asp-for="User.CreatedTime" class="form-control" />
-                <span asp-validation-for="User.CreatedTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.LastUpdatedBy" class="control-label"></label>
-                <input asp-for="User.LastUpdatedBy" class="form-control" />
-                <span asp-validation-for="User.LastUpdatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.LastUpdateTime" class="control-label"></label>
-                <input asp-for="User.LastUpdateTime" class="form-control" />
-                <span asp-validation-for="User.LastUpdateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.DeletedBy" class="control-label"></label>
-                <input asp-for="User.DeletedBy" class="form-control" />
-                <span asp-validation-for="User.DeletedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.DeletedTime" class="control-label"></label>
-                <input asp-for="User.DeletedTime" class="form-control" />
-                <span asp-validation-for="User.DeletedTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.Status" class="control-label"></label>
-                <input asp-for="User.Status" class="form-control" />
-                <span asp-validation-for="User.Status" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

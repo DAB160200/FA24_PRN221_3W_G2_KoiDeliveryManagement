@@ -35,5 +35,7 @@ namespace KoiDeliveryManagement.Repository.Model
 
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Delivery> Delivery { get; set; }
+
+        public virtual Supplier Supplier { get; set; }
     }
 }

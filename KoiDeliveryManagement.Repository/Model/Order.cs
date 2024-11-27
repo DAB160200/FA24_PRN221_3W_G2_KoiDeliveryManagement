@@ -46,5 +46,13 @@ namespace KoiDeliveryManagement.Repository.Model
         public virtual Fish Fish { get; set; }
 
         public virtual Delivery Delivery { get; set; }
+
+        [MaxLength(50)]
+        public string? PaymentReferenceId { get; set; }
+
+        [Required]
+        public bool IsGift { get; set; }
+
+        public Guid UniqueTrackingId { get; set; } = Guid.NewGuid();
     }
 }

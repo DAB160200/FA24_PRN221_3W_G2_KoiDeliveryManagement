@@ -21,7 +21,7 @@ namespace KoiDeliveryManagement.Repository.Model
         public float Amount { get; set; }
 
         [MaxLength(50)]
-        public string? PaymentMethod { get; set; } // e.g., "Credit Card", "PayPal"
+        public string? PaymentMethod { get; set; }
 
         public string? PaymentId { get; set; }
 
@@ -31,7 +31,18 @@ namespace KoiDeliveryManagement.Repository.Model
         [Required]
         public bool IsSuccessful { get; set; }
 
+        [MaxLength(50)]
+        public string? TransactionStatus { get; set; }
+
+        [MaxLength(10)]
+        public string? Currency { get; set; }
+
+        public float? TransactionFee { get; set; }
+
+        public float? RefundAmount { get; set; }
+
         [ForeignKey(nameof(OrderId))]
         public virtual Order Order { get; set; }
     }
+
 }

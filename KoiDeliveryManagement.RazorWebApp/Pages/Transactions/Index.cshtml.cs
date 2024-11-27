@@ -7,24 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
     public class IndexModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly TransactionService _transactionService;
 
-        public IndexModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public IndexModel(TransactionService transactionService)
         {
-            _context = context;
+            _transactionService = transactionService;
         }
 
         public IList<Transaction> Transaction { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Transaction = await _context.Transactions
-                .Include(t => t.Order).ToListAsync();
+            Transaction = await _transactionService.GetAll();
         }
     }
 }

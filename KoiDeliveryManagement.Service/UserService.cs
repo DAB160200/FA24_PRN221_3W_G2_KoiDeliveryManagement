@@ -26,7 +26,7 @@ namespace KoiDeliveryManagement.Services
             return await _repository.CreateAsync(User);
         }
 
-        public async Task<User> GetById(string id)
+        public async Task<User> GetById(int id)
         {
             return await _repository.GetByIdAsync(id);
         }

@@ -4,6 +4,7 @@ using KoiDeliveryManagement.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KoiDeliveryManagement.Repository.Migrations
 {
     [DbContext(typeof(KoiContext))]
-    partial class KoiContextModelSnapshot : ModelSnapshot
+    [Migration("20241127013922_Update_27_11_2")]
+    partial class Update_27_11_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,13 +116,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             AuthorityName = "Fish Health Organization",
                             AuthorityUrl = "https://fho.example.com",
                             CertificateType = "Health",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(571), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3082), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "A certificate verifying the health of the fish.",
                             ExpirationDate = new DateTime(2025, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FishId = 1,
                             IssueBy = "Veterinary Authority",
                             IssueDate = new DateTime(2023, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(571), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3082), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Health Certificate",
                             Status = 1,
                             Url = "https://example.com/certificates/health1.pdf"
@@ -132,12 +135,12 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             AuthorityName = "Koi Genetics Authority",
                             AuthorityUrl = "https://kga.example.com",
                             CertificateType = "Genetic",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(579), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3092), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Certificate verifying the genetic purity of the fish.",
                             FishId = 2,
                             IssueBy = "Genetics Lab Inc.",
                             IssueDate = new DateTime(2023, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(579), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3092), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Genetic Certificate",
                             Status = 1,
                             Url = "https://example.com/certificates/genetic2.pdf"
@@ -150,13 +153,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             AuthorityName = "International Breeder Council",
                             AuthorityUrl = "https://ibc.example.com",
                             CertificateType = "Origin",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(582), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3096), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Certificate verifying the origin and lineage of the fish.",
                             ExpirationDate = new DateTime(2030, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FishId = 3,
                             IssueBy = "Fish Breeder Association",
                             IssueDate = new DateTime(2022, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(582), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3096), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Origin Certificate",
                             Status = 1,
                             Url = "https://example.com/certificates/origin3.pdf"
@@ -242,13 +245,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(671), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3263), new TimeSpan(0, 0, 0, 0, 0)),
                             DeliveryMethod = "Standard Delivery",
                             DeliveryStaffId = 4,
                             Description = "Delivering a healthy koi fish to the customer.",
                             EstimatedArrivalDate = new DateTime(2024, 11, 20, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Customer confirmed fish was in good condition upon delivery.",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(671), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3263), new TimeSpan(0, 0, 0, 0, 0)),
                             Location = "123 Fish Street, Koi City",
                             OrderId = 1,
                             PackageType = "Standard Box",
@@ -259,13 +262,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(676), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3269), new TimeSpan(0, 0, 0, 0, 0)),
                             DeliveryMethod = "Express Delivery",
                             DeliveryStaffId = 4,
                             Description = "Delivering koi fish and maintenance service.",
                             EstimatedArrivalDate = new DateTime(2024, 11, 21, 15, 30, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Customer happy with the fast delivery.",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(676), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3269), new TimeSpan(0, 0, 0, 0, 0)),
                             Location = "456 Water Lane, Koi City",
                             OrderId = 2,
                             PackageType = "Insulated Box",
@@ -276,13 +279,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(679), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3273), new TimeSpan(0, 0, 0, 0, 0)),
                             DeliveryMethod = "Standard Delivery",
                             DeliveryStaffId = 4,
                             Description = "Delivering koi fish with an issue in packaging.",
                             EstimatedArrivalDate = new DateTime(2024, 11, 22, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Customer reported packaging damage, but fish was unharmed.",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(679), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3273), new TimeSpan(0, 0, 0, 0, 0)),
                             Location = "789 Pond Avenue, Koi City",
                             OrderId = 3,
                             PackageType = "Standard Box",
@@ -293,13 +296,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(681), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3276), new TimeSpan(0, 0, 0, 0, 0)),
                             DeliveryMethod = "Gift Wrap Delivery",
                             DeliveryStaffId = 4,
                             Description = "Delivering koi fish as a gift.",
                             EstimatedArrivalDate = new DateTime(2024, 11, 23, 16, 30, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Customer excited for the gift delivery.",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(681), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3276), new TimeSpan(0, 0, 0, 0, 0)),
                             Location = "101 Fish Lane, Koi City",
                             OrderId = 4,
                             PackageType = "Gift Box",
@@ -309,13 +312,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(683), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3278), new TimeSpan(0, 0, 0, 0, 0)),
                             DeliveryMethod = "Premium Delivery",
                             DeliveryStaffId = 4,
                             Description = "Delivering a healthy koi fish with premium service.",
                             EstimatedArrivalDate = new DateTime(2024, 11, 24, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Customer highly satisfied with the delivery and fish condition.",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(683), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3278), new TimeSpan(0, 0, 0, 0, 0)),
                             Location = "202 Coral Road, Koi City",
                             OrderId = 5,
                             PackageType = "Premium Box",
@@ -406,12 +409,12 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         {
                             Id = 1,
                             Breed = "Cyprinus rubrofuscus",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(489), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2983), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "A beautiful premium koi fish with red and white patterns.",
                             Dob = new DateTime(2022, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             HealthStatus = "Healthy",
                             ImageUrl = "https://example.com/images/koi1.jpg",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(489), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2983), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Koi Premium",
                             Price = 120f,
                             Size = 25.5f,
@@ -424,12 +427,12 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         {
                             Id = 2,
                             Breed = "Carassius auratus",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(498), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2995), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "A golden-colored fancy fish, perfect for aquariums.",
                             Dob = new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             HealthStatus = "Healthy",
                             ImageUrl = "https://example.com/images/golden1.jpg",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(498), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2995), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Golden Fancy",
                             Price = 90f,
                             Size = 18f,
@@ -442,12 +445,12 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         {
                             Id = 3,
                             Breed = "Arowana",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(501), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2999), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "A rare black dragonfish with elegant movements.",
                             Dob = new DateTime(2021, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             HealthStatus = "Excellent",
                             ImageUrl = "https://example.com/images/dragon1.jpg",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(501), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2999), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Black Dragon",
                             Price = 300f,
                             Size = 35f,
@@ -460,12 +463,12 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         {
                             Id = 4,
                             Breed = "Silver Carp",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(503), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3002), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "A silver-scaled fish with shimmering beauty.",
                             Dob = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             HealthStatus = "Healthy",
                             ImageUrl = "https://example.com/images/silver1.jpg",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(503), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3002), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Silver Stream",
                             Price = 80f,
                             Size = 20f,
@@ -478,12 +481,12 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         {
                             Id = 5,
                             Breed = "Rainbowfish",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(506), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3006), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "A vibrant fish with a mix of rainbow colors.",
                             Dob = new DateTime(2022, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             HealthStatus = "Good",
                             ImageUrl = "https://example.com/images/rainbow1.jpg",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(506), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3006), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Rainbow Delight",
                             Price = 110f,
                             Size = 15f,
@@ -576,92 +579,92 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(619), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3150), new TimeSpan(0, 0, 0, 0, 0)),
                             CustomerId = 1,
                             DeliveryDate = new DateTime(2024, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Amazing service! Everything was perfect.",
                             FishId = 1,
                             IsGift = false,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(619), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3150), new TimeSpan(0, 0, 0, 0, 0)),
                             OrderDate = new DateTime(2024, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentReferenceId = "PAY12345",
                             Rating = 5,
                             ServiceId = 1,
                             Status = 1,
                             Total = 15000f,
-                            UniqueTrackingId = new Guid("4d4448a2-f401-4e6f-b925-6bc8a6e884c1")
+                            UniqueTrackingId = new Guid("cf73caab-5412-480a-b0d1-7477910ec922")
                         },
                         new
                         {
                             Id = 2,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(625), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3212), new TimeSpan(0, 0, 0, 0, 0)),
                             CustomerId = 1,
                             DeliveryDate = new DateTime(2024, 11, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Good service, but delivery was slightly delayed.",
                             FishId = 2,
                             IsGift = true,
                             IssueReported = "Late delivery by 2 hours.",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(625), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3212), new TimeSpan(0, 0, 0, 0, 0)),
                             OrderDate = new DateTime(2024, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentReferenceId = "PAY67890",
                             Rating = 4,
                             ServiceId = 2,
                             Status = 1,
                             Total = 18000f,
-                            UniqueTrackingId = new Guid("eac8a99c-3dc8-4a05-8730-182e4b5734ea")
+                            UniqueTrackingId = new Guid("1ca2a64c-1f4f-4931-b45a-d45a0e1d2e05")
                         },
                         new
                         {
                             Id = 3,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(629), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3219), new TimeSpan(0, 0, 0, 0, 0)),
                             CustomerId = 1,
                             DeliveryDate = new DateTime(2024, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Fish was healthy but packaging was subpar.",
                             FishId = 3,
                             IsGift = false,
                             IssueReported = "Damaged packaging.",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(629), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3219), new TimeSpan(0, 0, 0, 0, 0)),
                             OrderDate = new DateTime(2024, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentReferenceId = "PAY11223",
                             Rating = 3,
                             ServiceId = 3,
                             Status = 1,
                             Total = 12000f,
-                            UniqueTrackingId = new Guid("300245ff-4a63-481e-a3b6-b27d6ce2110d")
+                            UniqueTrackingId = new Guid("298fcd25-2fda-4d07-a2ea-d9a05b44c72c")
                         },
                         new
                         {
                             Id = 4,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(643), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3224), new TimeSpan(0, 0, 0, 0, 0)),
                             CustomerId = 1,
                             DeliveryDate = new DateTime(2024, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FishId = 4,
                             IsGift = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(643), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3224), new TimeSpan(0, 0, 0, 0, 0)),
                             OrderDate = new DateTime(2024, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentReferenceId = "PAY44556",
                             ServiceId = 4,
                             Status = 1,
                             Total = 22000f,
-                            UniqueTrackingId = new Guid("4b3c6598-a552-4c11-9c29-75a002877d02")
+                            UniqueTrackingId = new Guid("bc546b89-bc9c-477d-8284-eb99a8aff515")
                         },
                         new
                         {
                             Id = 5,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(646), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3229), new TimeSpan(0, 0, 0, 0, 0)),
                             CustomerId = 1,
                             DeliveryDate = new DateTime(2024, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Feedback = "Fantastic experience! Highly recommend.",
                             FishId = 5,
                             IsGift = false,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(646), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3229), new TimeSpan(0, 0, 0, 0, 0)),
                             OrderDate = new DateTime(2024, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentReferenceId = "PAY77889",
                             Rating = 5,
                             ServiceId = 5,
                             Status = 1,
                             Total = 30000f,
-                            UniqueTrackingId = new Guid("91522712-d29e-47e8-833c-2254c68add80")
+                            UniqueTrackingId = new Guid("9c5227d0-b2ec-404d-b304-f8f0ec42b39b")
                         });
                 });
 
@@ -754,14 +757,14 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             Id = 1,
                             Availability = "Weekdays",
                             Category = "Health Check",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(528), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3037), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Comprehensive health check for your koi fish to ensure optimal health.",
                             DiscountPercentage = 10f,
                             DurationInHours = 2f,
                             ImageUrl = "https://example.com/images/healthcheck.jpg",
                             IsActive = true,
                             IsFeatured = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(528), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3037), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Health Check",
                             Price = 50f,
                             Rating = 4.5f,
@@ -774,13 +777,13 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             Id = 2,
                             Availability = "Weekdays",
                             Category = "Maintenance",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(535), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3044), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Regular maintenance service to keep your fish tank clean and healthy.",
                             DurationInHours = 3f,
                             ImageUrl = "https://example.com/images/tankmaintenance.jpg",
                             IsActive = true,
                             IsFeatured = false,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(535), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3044), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Tank Maintenance",
                             Price = 75f,
                             Rating = 4.7f,
@@ -793,14 +796,14 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             Id = 3,
                             Availability = "Daily",
                             Category = "Feeding",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(538), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3047), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Scheduled feeding service to ensure your fish are well-fed.",
                             DiscountPercentage = 5f,
                             DurationInHours = 1f,
                             ImageUrl = "https://example.com/images/feedingservice.jpg",
                             IsActive = true,
                             IsFeatured = false,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(538), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3047), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Feeding Service",
                             Price = 30f,
                             Rating = 4.3f,
@@ -813,14 +816,14 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             Id = 4,
                             Availability = "Weekends",
                             Category = "Health Check",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(541), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3051), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Specialized treatment services for sick or injured koi fish.",
                             DiscountPercentage = 15f,
                             DurationInHours = 4f,
                             ImageUrl = "https://example.com/images/diseasetreatment.jpg",
                             IsActive = true,
                             IsFeatured = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(541), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3051), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Disease Treatment",
                             Price = 150f,
                             Rating = 4.8f,
@@ -833,14 +836,14 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             Id = 5,
                             Availability = "Weekdays",
                             Category = "Setup",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(543), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3054), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Professional setup of a new aquarium tailored to your needs.",
                             DiscountPercentage = 20f,
                             DurationInHours = 5f,
                             ImageUrl = "https://example.com/images/aquariumsetup.jpg",
                             IsActive = true,
                             IsFeatured = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(543), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(3054), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Aquarium Setup",
                             Price = 200f,
                             Rating = 4.9f,
@@ -905,9 +908,6 @@ namespace KoiDeliveryManagement.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OwnerId")
-                        .IsUnique();
-
                     b.ToTable("Suppliers");
 
                     b.HasData(
@@ -916,9 +916,9 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             Id = 1,
                             Address = "123 Ocean Drive, Blue City",
                             ContactNumber = "555123456",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(462), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2948), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "contact@aquaticwonders.com",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(462), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2948), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Aquatic Wonders",
                             OwnerId = 2,
                             Status = 1,
@@ -929,11 +929,11 @@ namespace KoiDeliveryManagement.Repository.Migrations
                             Id = 2,
                             Address = "789 Reef Road, Coral Town",
                             ContactNumber = "555987654",
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(467), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2955), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "info@marinesupplies.com",
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(467), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2955), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Marine Supplies Co.",
-                            OwnerId = 7,
+                            OwnerId = 2,
                             Status = 1,
                             WebsiteUrl = "https://www.marinesupplies.com"
                         });
@@ -955,10 +955,6 @@ namespace KoiDeliveryManagement.Repository.Migrations
 
                     b.Property<DateTimeOffset?>("CreatedTime")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Currency")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
@@ -989,115 +985,17 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<float?>("RefundAmount")
-                        .HasColumnType("real");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<float?>("TransactionFee")
-                        .HasColumnType("real");
-
-                    b.Property<string>("TransactionStatus")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
                     b.ToTable("Transactions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Amount = 150f,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(703), new TimeSpan(0, 0, 0, 0, 0)),
-                            Currency = "USD",
-                            IsSuccessful = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(703), new TimeSpan(0, 0, 0, 0, 0)),
-                            Notes = "Payment for koi fish and delivery.",
-                            OrderId = 1,
-                            PaymentId = "PAY12345",
-                            PaymentMethod = "Credit Card",
-                            Status = 1,
-                            TransactionDate = new DateTime(2024, 11, 20, 14, 30, 0, 0, DateTimeKind.Unspecified),
-                            TransactionFee = 2.5f,
-                            TransactionStatus = "Completed"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Amount = 200f,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(711), new TimeSpan(0, 0, 0, 0, 0)),
-                            Currency = "USD",
-                            IsSuccessful = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(711), new TimeSpan(0, 0, 0, 0, 0)),
-                            Notes = "Payment for koi fish and service.",
-                            OrderId = 2,
-                            PaymentId = "PAY67890",
-                            PaymentMethod = "PayPal",
-                            Status = 1,
-                            TransactionDate = new DateTime(2024, 11, 21, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionFee = 3f,
-                            TransactionStatus = "Completed"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Amount = 180f,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(713), new TimeSpan(0, 0, 0, 0, 0)),
-                            Currency = "USD",
-                            IsSuccessful = false,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(713), new TimeSpan(0, 0, 0, 0, 0)),
-                            Notes = "Payment for koi fish with packaging issue.",
-                            OrderId = 3,
-                            PaymentId = "PAY11223",
-                            PaymentMethod = "Credit Card",
-                            RefundAmount = 180f,
-                            Status = 1,
-                            TransactionDate = new DateTime(2024, 11, 22, 11, 30, 0, 0, DateTimeKind.Unspecified),
-                            TransactionFee = 2.5f,
-                            TransactionStatus = "Failed"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Amount = 250f,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(716), new TimeSpan(0, 0, 0, 0, 0)),
-                            Currency = "USD",
-                            IsSuccessful = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(716), new TimeSpan(0, 0, 0, 0, 0)),
-                            Notes = "Payment for koi fish gift delivery.",
-                            OrderId = 4,
-                            PaymentId = "PAY44556",
-                            PaymentMethod = "Bank Transfer",
-                            Status = 1,
-                            TransactionDate = new DateTime(2024, 11, 23, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionFee = 1.5f,
-                            TransactionStatus = "Completed"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Amount = 300f,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(718), new TimeSpan(0, 0, 0, 0, 0)),
-                            Currency = "USD",
-                            IsSuccessful = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(718), new TimeSpan(0, 0, 0, 0, 0)),
-                            Notes = "Payment for koi fish and premium service.",
-                            OrderId = 5,
-                            PaymentId = "PAY77889",
-                            PaymentMethod = "Credit Card",
-                            Status = 1,
-                            TransactionDate = new DateTime(2024, 11, 24, 12, 30, 0, 0, DateTimeKind.Unspecified),
-                            TransactionFee = 2f,
-                            TransactionStatus = "Completed"
-                        });
                 });
 
             modelBuilder.Entity("KoiDeliveryManagement.Repository.Model.User", b =>
@@ -1172,11 +1070,11 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(248), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2730), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "customer1@example.com",
                             FullName = "Customer One",
                             IsEmailVerified = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(248), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2730), new TimeSpan(0, 0, 0, 0, 0)),
                             PasswordHash = "12345678",
                             PhoneNumber = "123456789",
                             Role = "Customer",
@@ -1186,11 +1084,11 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(261), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2746), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "supplier1@example.com",
                             FullName = "Supplier One",
                             IsEmailVerified = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(261), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2746), new TimeSpan(0, 0, 0, 0, 0)),
                             PasswordHash = "12345678",
                             PhoneNumber = "123456789",
                             Role = "Supplier",
@@ -1200,11 +1098,11 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(264), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2749), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "staff1@example.com",
                             FullName = "System Staff One",
                             IsEmailVerified = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(264), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2749), new TimeSpan(0, 0, 0, 0, 0)),
                             PasswordHash = "12345678",
                             PhoneNumber = "987654321",
                             Role = "SystemStaff",
@@ -1214,11 +1112,11 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(265), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2752), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "delivery1@example.com",
                             FullName = "Delivery Staff One",
                             IsEmailVerified = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(265), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2752), new TimeSpan(0, 0, 0, 0, 0)),
                             PasswordHash = "12345678",
                             PhoneNumber = "567890123",
                             Role = "Delivery",
@@ -1228,30 +1126,16 @@ namespace KoiDeliveryManagement.Repository.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(267), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2754), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "admin1@example.com",
                             FullName = "Admin One",
                             IsEmailVerified = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(267), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 39, 21, 337, DateTimeKind.Unspecified).AddTicks(2754), new TimeSpan(0, 0, 0, 0, 0)),
                             PasswordHash = "12345678",
                             PhoneNumber = "456789012",
                             Role = "Admin",
                             Status = 1,
                             Username = "admin1"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CreatedTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(269), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "supplier2@example.com",
-                            FullName = "Supplier Two",
-                            IsEmailVerified = true,
-                            LastUpdateTime = new DateTimeOffset(new DateTime(2024, 11, 27, 1, 54, 49, 282, DateTimeKind.Unspecified).AddTicks(269), new TimeSpan(0, 0, 0, 0, 0)),
-                            PasswordHash = "12345678",
-                            PhoneNumber = "789012345",
-                            Role = "Supplier",
-                            Status = 1,
-                            Username = "supplier2"
                         });
                 });
 
@@ -1323,17 +1207,6 @@ namespace KoiDeliveryManagement.Repository.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("KoiDeliveryManagement.Repository.Model.Supplier", b =>
-                {
-                    b.HasOne("KoiDeliveryManagement.Repository.Model.User", "Owner")
-                        .WithOne("Supplier")
-                        .HasForeignKey("KoiDeliveryManagement.Repository.Model.Supplier", "OwnerId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Owner");
-                });
-
             modelBuilder.Entity("KoiDeliveryManagement.Repository.Model.Transaction", b =>
                 {
                     b.HasOne("KoiDeliveryManagement.Repository.Model.Order", "Order")
@@ -1366,9 +1239,6 @@ namespace KoiDeliveryManagement.Repository.Migrations
                     b.Navigation("Delivery");
 
                     b.Navigation("Orders");
-
-                    b.Navigation("Supplier")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
