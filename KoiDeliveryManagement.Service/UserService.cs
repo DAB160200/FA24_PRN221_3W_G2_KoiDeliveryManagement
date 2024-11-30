@@ -41,6 +41,21 @@ namespace KoiDeliveryManagement.Services
             return await _repository.RemoveAsync(User);
         }
 
+        public async Task<List<User>> SearchByName(string name)
+        {
+            return await _repository.GetByNameAsync(name);
+        }
+
+        public async Task<List<User>> SearchByPhone(string taxCode)
+        {
+            return await _repository.GetByPhoneAsync(taxCode);
+        }
+
+        public async Task<List<User>> SearchByEmail(string email)
+        {
+            return await _repository.GetByEmailAsync(email);
+        }
+
         //public List<User> Search(string bankNo, string holderName, string holderTaxCode)
         //{
         //    return _repository.Search(bankNo, holderName, holderTaxCode);

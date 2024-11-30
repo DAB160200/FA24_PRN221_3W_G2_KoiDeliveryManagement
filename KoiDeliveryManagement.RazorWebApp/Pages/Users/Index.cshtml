@@ -2,119 +2,156 @@
 @model KoiDeliveryManagement.RazorWebApp.Pages.Users.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "User List";
 }
 
-<h1>Index</h1>
+<h1 class="my-4 text-center text-primary">@ViewData["Title"]</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].PasswordHash)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].IsEmailVerified)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].ProfileImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Role)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].CreatedTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].LastUpdatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].LastUpdateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].DeletedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].DeletedTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.User) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PasswordHash)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsEmailVerified)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProfileImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeletedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeletedTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a asp-page="Create" class="btn btn-success">
+            <i class="fas fa-plus-circle"></i> Create New
+        </a>
+        <a asp-page="./Index" class="btn btn-danger">
+            <i class="fas fa-times-circle"></i> Reset All Filters
+        </a>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4 mb-2">
+            <form method="get" class="input-group">
+                <input type="text" name="SearchName" value="@Model.SearchName" placeholder="Search by Name" class="form-control" />
+                <button type="submit" class="btn btn-secondary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <div class="col-md-4 mb-2">
+            <form method="get" class="input-group">
+                <input type="text" name="SearchPhone" value="@Model.SearchPhone" placeholder="Search by Phone" class="form-control" />
+                <button type="submit" class="btn btn-secondary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <div class="col-md-4 mb-2">
+            <form method="get" class="input-group">
+                <input type="text" name="SearchEmail" value="@Model.SearchEmail" placeholder="Search by Email" class="form-control" />
+                <button type="submit" class="btn btn-secondary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <form method="get" class="form-inline">
+            <label for="PageSize" class="me-2">Items per page:</label>
+            <select id="PageSize" name="PageSize" class="form-select w-auto" onchange="this.form.submit()">
+                @foreach (var size in new[] { 5, 10, 20, 50 })
+                {
+                    if (Model.PageSize == size)
+                    {
+                        <option value="@size" selected>@size</option>
+                    }
+                    else
+                    {
+                        <option value="@size">@size</option>
+                    }
+                }
+            </select>
+        </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.User[0].Username)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].FullName)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].PhoneNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].Role)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].Dob)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].Gender)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].Address)</th>
+                    <th>@Html.DisplayNameFor(model => model.User[0].Status)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.User)
+                {
+                    <tr>
+                        <td>@item.Username</td>
+                        <td>@item.FullName</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Role</td>
+                        <td>@item.Dob</td>
+                        <td>@item.Gender</td>
+                        <td>@item.Address</td>
+                        <td>@item.Status</td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <nav aria-label="User List Pagination">
+        <ul class="pagination justify-content-center">
+            @if (Model.User.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a asp-page="./Index"
+                       asp-route-pageIndex="@(Model.User.PageIndex - 1)"
+                       asp-route-searchName="@Model.SearchName"
+                       asp-route-searchPhone="@Model.SearchPhone"
+                       asp-route-searchEmail="@Model.SearchEmail"
+                       class="page-link">
+                        Previous
+                    </a>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.User.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.User.PageIndex ? "active" : "")">
+                    <a asp-page="./Index"
+                       asp-route-pageIndex="@i"
+                       asp-route-searchName="@Model.SearchName"
+                       asp-route-searchPhone="@Model.SearchPhone"
+                       asp-route-searchEmail="@Model.SearchEmail"
+                       class="page-link">
+                        @i
+                    </a>
+                </li>
+            }
+
+            @if (Model.User.HasNextPage)
+            {
+                <li class="page-item">
+                    <a asp-page="./Index"
+                       asp-route-pageIndex="@(Model.User.PageIndex + 1)"
+                       asp-route-searchName="@Model.SearchName"
+                       asp-route-searchPhone="@Model.SearchPhone"
+                       asp-route-searchEmail="@Model.SearchEmail"
+                       class="page-link">
+                        Next
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

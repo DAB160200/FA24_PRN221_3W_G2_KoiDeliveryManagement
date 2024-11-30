@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
 using KoiDeliveryManagement.Services;
+using KoiDeliveryManagement.RazorWebApp.Utils.Pagination;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
 {
@@ -20,11 +21,38 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
             _userService = userService;
         }
 
-        public IList<User> User { get;set; } = default!;
+        public PaginatedList<User> User { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        [BindProperty(SupportsGet = true)]
+        public string? SearchName { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? SearchPhone { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? SearchEmail { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int PageSize { get; set; } = 5;
+
+        public async Task OnGetAsync(int pageIndex = 1)
         {
-            User = await _userService.GetAll();
+            var users = await _userService.GetAll();
+
+            if (!string.IsNullOrWhiteSpace(SearchName))
+            {
+                users = await _userService.SearchByName(SearchName);
+            }
+            else if (!string.IsNullOrWhiteSpace(SearchPhone))
+            {
+                users = await _userService.SearchByPhone(SearchPhone);
+            }
+            else if (!string.IsNullOrWhiteSpace(SearchEmail))
+            {
+                users = await _userService.SearchByEmail(SearchEmail);
+            }
+
+            User = PaginatedList<User>.Create(users, pageIndex, PageSize);
         }
     }
 }
