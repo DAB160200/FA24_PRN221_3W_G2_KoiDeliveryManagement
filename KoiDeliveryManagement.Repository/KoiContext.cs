@@ -157,7 +157,10 @@ namespace KoiDeliveryManagement.Repository
             PhoneNumber = "123456789",
             PasswordHash = "12345678",
             IsEmailVerified = true,
-            Role = "Customer"
+            Role = "Customer",
+            Dob = new DateTime(2000, 1, 1),
+            Gender = true,
+            Address = "123 Main Street, City"
             },
             new User
             {
@@ -168,7 +171,10 @@ namespace KoiDeliveryManagement.Repository
                 PhoneNumber = "123456789",
                 PasswordHash = "12345678",
                 IsEmailVerified = true,
-                Role = "Supplier"
+                Role = "Supplier",
+                Dob = new DateTime(2000, 1, 1),
+                Gender = true,
+                Address = "123 Main Street, City"
             }
             ,
             new User
@@ -180,7 +186,10 @@ namespace KoiDeliveryManagement.Repository
             PhoneNumber = "987654321",
             PasswordHash = "12345678",
             IsEmailVerified = true,
-            Role = "SystemStaff"
+            Role = "SystemStaff",
+            Dob = new DateTime(2000, 1, 1),
+            Gender = true,
+            Address = "123 Main Street, City"
             },
             new User
             {
@@ -191,7 +200,10 @@ namespace KoiDeliveryManagement.Repository
             PhoneNumber = "567890123",
             PasswordHash = "12345678",
             IsEmailVerified = true,
-            Role = "Delivery"
+            Role = "Delivery",
+                Dob = new DateTime(2000, 1, 1),
+                Gender = true,
+                Address = "123 Main Street, City"
             },
             new User
             {
@@ -202,7 +214,10 @@ namespace KoiDeliveryManagement.Repository
             PhoneNumber = "456789012",
             PasswordHash = "12345678",
             IsEmailVerified = true,
-            Role = "Admin"
+            Role = "Admin",
+                Dob = new DateTime(2000, 1, 1),
+                Gender = true,
+                Address = "123 Main Street, City"
             },
             new User
             {
@@ -213,7 +228,10 @@ namespace KoiDeliveryManagement.Repository
             PhoneNumber = "789012345",
             PasswordHash = "12345678",
             IsEmailVerified = true,
-            Role = "Supplier"
+            Role = "Supplier",
+                Dob = new DateTime(2000, 1, 1),
+                Gender = true,
+                Address = "123 Main Street, City"
             }
             );
             #endregion

@@ -10,7 +10,7 @@ namespace KoiDeliveryManagement.Services
 {
     public class TransactionService
     {
-        private TransactionRepository _repository;
+        private readonly TransactionRepository _repository;
         public TransactionService()
         {
             _repository = new TransactionRepository();

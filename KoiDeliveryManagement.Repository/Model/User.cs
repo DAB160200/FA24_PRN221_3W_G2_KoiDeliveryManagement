@@ -25,6 +25,13 @@ namespace KoiDeliveryManagement.Repository.Model
         [Required, MaxLength(100)]
         public string PasswordHash { get; set; }
 
+        public DateTime Dob { get; set; }
+
+        public bool Gender { get; set; }
+
+        [MaxLength(500)]
+        public string? Address { get; set; }
+
         public bool IsEmailVerified { get; set; } = false;
 
         [MaxLength(500)]

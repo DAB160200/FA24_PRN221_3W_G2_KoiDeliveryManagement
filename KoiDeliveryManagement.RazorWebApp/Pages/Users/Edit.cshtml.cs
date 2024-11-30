@@ -55,6 +55,23 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Users
             }
 
             ViewData["RoleOptions"] = selectList;
+
+            var accountStatusList = new List<SelectListItem>();
+            accountStatusList.Add(new SelectListItem { Value = "1", Text = "Active" });
+            accountStatusList.Add(new SelectListItem { Value = "2", Text = "Inactive" });
+            accountStatusList.Add(new SelectListItem { Value = "3", Text = "Blocked" });
+
+            foreach (var item in accountStatusList)
+            {
+                if (item.Value == User.Status.ToString())
+                {
+                    item.Selected = true;
+                    break;
+                }
+            }
+
+            ViewData["AccountStatusOptions"] = accountStatusList;
+
             return Page();
         }
 

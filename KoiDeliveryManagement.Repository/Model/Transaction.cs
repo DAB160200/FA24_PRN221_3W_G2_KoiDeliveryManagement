@@ -41,6 +41,8 @@ namespace KoiDeliveryManagement.Repository.Model
 
         public float? RefundAmount { get; set; }
 
+        public DateTime? RefundDate { get; set; }
+
         [ForeignKey(nameof(OrderId))]
         public virtual Order Order { get; set; }
     }
