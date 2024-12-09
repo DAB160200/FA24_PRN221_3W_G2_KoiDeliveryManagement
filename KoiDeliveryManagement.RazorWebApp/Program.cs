@@ -2,9 +2,7 @@ using KoiDeliveryManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<TransactionService>();
-
+builder.Services.AddScoped<DeliveryService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 

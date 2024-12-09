@@ -7,20 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
+using KoiDeliveryManagement.Services;
 
-namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
+namespace KoiDeliveryManagement.RazorWebApp.Pages.Deliveries
 {
     public class DeleteModel : PageModel
     {
-        private readonly KoiDeliveryManagement.Repository.KoiContext _context;
+        private readonly DeliveryService _deliveryService;
 
-        public DeleteModel(KoiDeliveryManagement.Repository.KoiContext context)
+        public DeleteModel(DeliveryService deliveryService)
         {
-            _context = context;
+            _deliveryService = deliveryService;
         }
 
         [BindProperty]
-        public Transaction Transaction { get; set; } = default!;
+        public Delivery Delivery { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,15 +30,15 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return NotFound();
             }
 
-            var transaction = await _context.Transactions.FirstOrDefaultAsync(m => m.Id == id);
+            var delivery = await _deliveryService.GetById(id.Value);
 
-            if (transaction == null)
+            if (delivery == null)
             {
                 return NotFound();
             }
             else
             {
-                Transaction = transaction;
+                Delivery = delivery;
             }
             return Page();
         }
@@ -49,12 +50,11 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return NotFound();
             }
 
-            var transaction = await _context.Transactions.FindAsync(id);
-            if (transaction != null)
+            var delivery = await _deliveryService.GetById(id.Value);
+            if (delivery != null)
             {
-                Transaction = transaction;
-                _context.Transactions.Remove(Transaction);
-                await _context.SaveChangesAsync();
+                Delivery = delivery;
+                await _deliveryService.Delete(Delivery);
             }
 
             return RedirectToPage("./Index");
