@@ -1,0 +1,144 @@
+﻿@page
+@model KoiDeliveryManagement.RazorWebApp.Pages.Certificates.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].IssueBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].IssueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].CertificateType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].ExpirationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].AuthorityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].AuthorityUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].AuthorityAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].AuthorityContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].Fish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].CreatedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].LastUpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].LastUpdateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].DeletedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].DeletedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certificate[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Certificate) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssueBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificateType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorityUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorityAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorityContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fish.Breed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

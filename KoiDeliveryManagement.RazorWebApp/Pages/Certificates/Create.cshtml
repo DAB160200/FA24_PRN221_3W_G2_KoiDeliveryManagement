@@ -1,0 +1,126 @@
+﻿@page
+@model KoiDeliveryManagement.RazorWebApp.Pages.Certificates.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Certificate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Certificate.FishId" class="control-label"></label>
+                <select asp-for="Certificate.FishId" class ="form-control" asp-items="ViewBag.FishId"></select>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Certificate.Name" class="control-label"></label>
+                <input asp-for="Certificate.Name" class="form-control" />
+                <span asp-validation-for="Certificate.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.Url" class="control-label"></label>
+                <input asp-for="Certificate.Url" class="form-control" />
+                <span asp-validation-for="Certificate.Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Certificate.IssueBy" class="control-label"></label>
+                <input asp-for="Certificate.IssueBy" class="form-control" />
+                <span asp-validation-for="Certificate.IssueBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.IssueDate" class="control-label"></label>
+                <input asp-for="Certificate.IssueDate" class="form-control" />
+                <span asp-validation-for="Certificate.IssueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Certificate.CertificateType" class="control-label"></label>
+                <input asp-for="Certificate.CertificateType" class="form-control" />
+                <span asp-validation-for="Certificate.CertificateType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.ExpirationDate" class="control-label"></label>
+                <input asp-for="Certificate.ExpirationDate" class="form-control" />
+                <span asp-validation-for="Certificate.ExpirationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.Description" class="control-label"></label>
+                <input asp-for="Certificate.Description" class="form-control" />
+                <span asp-validation-for="Certificate.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.AuthorityName" class="control-label"></label>
+                <input asp-for="Certificate.AuthorityName" class="form-control" />
+                <span asp-validation-for="Certificate.AuthorityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.AuthorityUrl" class="control-label"></label>
+                <input asp-for="Certificate.AuthorityUrl" class="form-control" />
+                <span asp-validation-for="Certificate.AuthorityUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.AuthorityAddress" class="control-label"></label>
+                <input asp-for="Certificate.AuthorityAddress" class="form-control" />
+                <span asp-validation-for="Certificate.AuthorityAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.AuthorityContact" class="control-label"></label>
+                <input asp-for="Certificate.AuthorityContact" class="form-control" />
+                <span asp-validation-for="Certificate.AuthorityContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.CreatedBy" class="control-label"></label>
+                <input asp-for="Certificate.CreatedBy" class="form-control" />
+                <span asp-validation-for="Certificate.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.CreatedTime" class="control-label"></label>
+                <input asp-for="Certificate.CreatedTime" class="form-control" />
+                <span asp-validation-for="Certificate.CreatedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.LastUpdatedBy" class="control-label"></label>
+                <input asp-for="Certificate.LastUpdatedBy" class="form-control" />
+                <span asp-validation-for="Certificate.LastUpdatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.LastUpdateTime" class="control-label"></label>
+                <input asp-for="Certificate.LastUpdateTime" class="form-control" />
+                <span asp-validation-for="Certificate.LastUpdateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.DeletedBy" class="control-label"></label>
+                <input asp-for="Certificate.DeletedBy" class="form-control" />
+                <span asp-validation-for="Certificate.DeletedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.DeletedTime" class="control-label"></label>
+                <input asp-for="Certificate.DeletedTime" class="form-control" />
+                <span asp-validation-for="Certificate.DeletedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Certificate.Status" class="control-label"></label>
+                <input asp-for="Certificate.Status" class="form-control" />
+                <span asp-validation-for="Certificate.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
