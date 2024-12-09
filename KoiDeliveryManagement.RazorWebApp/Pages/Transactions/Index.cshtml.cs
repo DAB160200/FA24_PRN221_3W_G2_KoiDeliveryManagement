@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using KoiDeliveryManagement.Repository;
 using KoiDeliveryManagement.Repository.Model;
 using KoiDeliveryManagement.Services;
+using KoiDeliveryManagement.RazorWebApp.Utils.Pagination;
 
 namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
@@ -20,11 +21,34 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
             _transactionService = transactionService;
         }
 
-        public IList<Transaction> Transaction { get;set; } = default!;
+        public PaginatedList<Transaction> Transaction { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public int TotalItems { get; private set; }
+        public int PageIndex { get; private set; } = 1;
+        public int PageSize { get; private set; } = 5;
+        public int TotalPages => (int)Math.Ceiling((double)TotalItems / PageSize);
+
+        [BindProperty(SupportsGet = true)]
+        public string? Currency { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? PaymentMethod { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? CustomerName { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int pageIndex = 1)
         {
-            Transaction = await _transactionService.GetAll();
+            PageIndex = pageIndex;
+
+            var query = string.IsNullOrEmpty(Currency) && string.IsNullOrEmpty(PaymentMethod) && string.IsNullOrEmpty(CustomerName)
+                ? await _transactionService.GetAll()
+                : await _transactionService.SearchTransaction(Currency, PaymentMethod, CustomerName);
+
+            TotalItems = query.Count();
+            Transaction = PaginatedList<Transaction>.Create(query, pageIndex, PageSize);
+
+            return Page();
         }
     }
 }

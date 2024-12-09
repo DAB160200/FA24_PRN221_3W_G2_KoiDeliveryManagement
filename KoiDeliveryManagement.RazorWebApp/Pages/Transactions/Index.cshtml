@@ -10,14 +10,44 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form method="get" class="form-inline mb-3">
+    <div class="form-group">
+        <label for="Currency" class="mr-2">Currency</label>
+        <input type="text" id="Currency" name="Currency" value="@Model.Currency" class="form-control mr-3" />
+    </div>
+    <div class="form-group">
+        <label for="PaymentMethod" class="mr-2">PaymentMethod</label>
+        <input type="text" id="PaymentMethod" name="PaymentMethod" value="@Model.PaymentMethod" class="form-control mr-3" />
+    </div>
+    <div class="form-group">
+        <label for="CustomerName" class="mr-2">CustomerName</label>
+        <input type="text" id="CustomerName" name="CustomerName" value="@Model.CustomerName" class="form-control mr-3" />
+    </div>
+    <button type="submit" class="btn btn-secondary">Search</button>
+    <a asp-page="./Index" class="btn btn-outline-secondary ml-2">Clear</a>
+</form>
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].Id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Transaction[0].TransactionDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Transaction[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].RefundDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].RefundAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].Currency)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Transaction[0].PaymentMethod)
@@ -35,25 +65,10 @@
                 @Html.DisplayNameFor(model => model.Transaction[0].Order)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].CreatedTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].LastUpdatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].LastUpdateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].DeletedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transaction[0].DeletedTime)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Transaction[0].Status)
+            </th>
+            <th>
+                Customer Name
             </th>
             <th></th>
         </tr>
@@ -62,10 +77,22 @@
 @foreach (var item in Model.Transaction) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.TransactionDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefundDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefundAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PaymentMethod)
@@ -83,25 +110,10 @@
                 @Html.DisplayFor(modelItem => item.Order.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeletedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeletedTime)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.Customer.FullName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
@@ -112,3 +124,40 @@
 }
     </tbody>
 </table>
+
+<nav aria-label="User List Pagination">
+    <ul class="pagination">
+        @if (Model.Transaction.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a asp-page="./Index"
+                   asp-route-pageIndex="@(Model.Transaction.PageIndex - 1)"
+                   class="page-link">
+                    Previous
+                </a>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.Transaction.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.Transaction.PageIndex ? "active" : "")">
+                <a asp-page="./Index"
+                   asp-route-pageIndex="@i"
+                   class="page-link">
+                    @i
+                </a>
+            </li>
+        }
+
+        @if (Model.Transaction.HasNextPage)
+        {
+            <li class="page-item">
+                <a asp-page="./Index"
+                   asp-route-pageIndex="@(Model.Transaction.PageIndex + 1)"
+                   class="page-link">
+                    Next
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

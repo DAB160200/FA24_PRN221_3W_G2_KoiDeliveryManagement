@@ -52,37 +52,32 @@
                     <input class="form-check-input" asp-for="Transaction.IsSuccessful" /> @Html.DisplayNameFor(model => model.Transaction.IsSuccessful)
                 </label>
             </div>
+            <div class="form-group">
+                <label asp-for="Transaction.TransactionStatus" class="control-label"></label>
+                <input asp-for="Transaction.TransactionStatus" class="form-control" />
+                <span asp-validation-for="Transaction.TransactionStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaction.Currency" class="control-label"></label>
+                <input asp-for="Transaction.Currency" class="form-control" />
+                <span asp-validation-for="Transaction.Currency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaction.TransactionFee" class="control-label"></label>
+                <input asp-for="Transaction.TransactionFee" class="form-control" />
+                <span asp-validation-for="Transaction.TransactionFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaction.RefundAmount" class="control-label"></label>
+                <input asp-for="Transaction.RefundAmount" class="form-control" />
+                <span asp-validation-for="Transaction.RefundAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transaction.RefundDate" class="control-label"></label>
+                <input asp-for="Transaction.RefundDate" class="form-control" />
+                <span asp-validation-for="Transaction.RefundDate" class="text-danger"></span>
+            </div>
             <input type="hidden" asp-for="Transaction.Id" />
-            <div class="form-group">
-                <label asp-for="Transaction.CreatedBy" class="control-label"></label>
-                <input asp-for="Transaction.CreatedBy" class="form-control" />
-                <span asp-validation-for="Transaction.CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Transaction.CreatedTime" class="control-label"></label>
-                <input asp-for="Transaction.CreatedTime" class="form-control" />
-                <span asp-validation-for="Transaction.CreatedTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Transaction.LastUpdatedBy" class="control-label"></label>
-                <input asp-for="Transaction.LastUpdatedBy" class="form-control" />
-                <span asp-validation-for="Transaction.LastUpdatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Transaction.LastUpdateTime" class="control-label"></label>
-                <input asp-for="Transaction.LastUpdateTime" class="form-control" />
-                <span asp-validation-for="Transaction.LastUpdateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Transaction.DeletedBy" class="control-label"></label>
-                <input asp-for="Transaction.DeletedBy" class="form-control" />
-                <span asp-validation-for="Transaction.DeletedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Transaction.DeletedTime" class="control-label"></label>
-                <input asp-for="Transaction.DeletedTime" class="form-control" />
-                <span asp-validation-for="Transaction.DeletedTime" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Transaction.Status" class="control-label"></label>
                 <input asp-for="Transaction.Status" class="form-control" />

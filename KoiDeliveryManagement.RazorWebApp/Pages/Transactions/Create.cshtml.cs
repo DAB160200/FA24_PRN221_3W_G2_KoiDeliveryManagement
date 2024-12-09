@@ -13,19 +13,18 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
     public class CreateModel : PageModel
     {
-        private readonly OrderService _orderService;
         private readonly TransactionService _transactionService;
+        private readonly OrderService _orderService;
 
-        public CreateModel(OrderService orderService, TransactionService transactionService)
+        public CreateModel(TransactionService transactionService, OrderService orderService)
         {
-            _orderService = orderService;
             _transactionService = transactionService;
+            _orderService = orderService;
         }
 
         public async Task<IActionResult> OnGet()
         {
-            var orders = await _orderService.GetAllAsync();
-            ViewData["OrderId"] = new SelectList(orders, "Id", "Id");
+        ViewData["OrderId"] = new SelectList(await _orderService.GetAllAsync(), "Id", "Id");
             return Page();
         }
 
@@ -35,10 +34,10 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             await _transactionService.Create(Transaction);
 

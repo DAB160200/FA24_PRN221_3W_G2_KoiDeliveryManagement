@@ -13,18 +13,40 @@ namespace KoiDeliveryManagement.Repository.Repositories
     {
         public TransactionRepository() { }
 
-        public async Task<List<Transaction>> GetAllAsync()
+        public async Task<List<Transaction>> GetTransactions()
         {
-            var transactions = await _context.Transactions.Include(t => t.Order).ToListAsync();
+            var transactions = await _context.Transactions.Include(t => t.Order).ThenInclude(o => o.Customer).ToListAsync();
 
             return transactions;
         }
 
-        public async Task<Transaction> GetByIdAsync(int id)
+        public async Task<Transaction> GetTransactionById(int id)
         {
-            var transaction = await _context.Transactions.Include(t => t.Order).FirstAsync(t => t.Id == id);
+            var transaction = await _context.Transactions.Include(t => t.Order).ThenInclude(o => o.Customer).FirstAsync(t => t.Id == id);
 
             return transaction;
+        }
+
+        public async Task<List<Transaction>> SearchTransactionAsync(string currency, string paymentMethod, string customerName)
+        {
+            var query = await _context.Transactions.Include(t => t.Order).ThenInclude(o => o.Customer).ToListAsync();
+
+            if (!string.IsNullOrEmpty(currency))
+            {
+                query = query.Where(t => t.Currency == currency).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(paymentMethod))
+            {
+                query = query.Where(t => t.PaymentMethod == paymentMethod).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(customerName))
+            {
+                query = query.Where(t => t.Order.Customer.FullName.Contains(customerName)).ToList();
+            }
+
+            return query;
         }
     }
 }

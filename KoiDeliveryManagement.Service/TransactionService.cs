@@ -18,7 +18,7 @@ namespace KoiDeliveryManagement.Services
 
         public async Task<List<Transaction>> GetAll()
         {
-            return await _repository.GetAllAsync();
+            return await _repository.GetTransactions();
         }
 
         public async Task<int> Create(Transaction Transaction)
@@ -28,7 +28,7 @@ namespace KoiDeliveryManagement.Services
 
         public async Task<Transaction> GetById(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            return await _repository.GetTransactionById(id);
         }
 
         public async Task<int> Update(Transaction Transaction)
@@ -41,9 +41,9 @@ namespace KoiDeliveryManagement.Services
             return await _repository.RemoveAsync(Transaction);
         }
 
-        //public List<Transaction> Search(string bankNo, string holderName, string holderTaxCode)
-        //{
-        //    return _repository.Search(bankNo, holderName, holderTaxCode);
-        //}
+        public async Task<List<Transaction>> SearchTransaction(string currency, string paymentMethod, string name)
+        {
+            return await _repository.SearchTransactionAsync(currency, paymentMethod, name);
+        }
     }
 }

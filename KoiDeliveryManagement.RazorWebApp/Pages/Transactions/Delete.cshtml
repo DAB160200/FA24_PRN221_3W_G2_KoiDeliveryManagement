@@ -49,52 +49,40 @@
             @Html.DisplayFor(model => model.Transaction.IsSuccessful)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaction.TransactionStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Transaction.TransactionStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaction.Currency)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Transaction.Currency)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaction.TransactionFee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Transaction.TransactionFee)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaction.RefundAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Transaction.RefundAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Transaction.RefundDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Transaction.RefundDate)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Transaction.Order)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Transaction.Order.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.CreatedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.CreatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.CreatedTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.CreatedTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.LastUpdatedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.LastUpdatedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.LastUpdateTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.LastUpdateTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.DeletedBy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.DeletedBy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.DeletedTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.DeletedTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transaction.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transaction.Status)
         </dd>
     </dl>
     

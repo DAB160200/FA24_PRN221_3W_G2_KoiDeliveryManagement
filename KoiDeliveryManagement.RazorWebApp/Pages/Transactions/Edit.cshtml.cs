@@ -14,13 +14,13 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 {
     public class EditModel : PageModel
     {
-        private readonly OrderService _orderService;
         private readonly TransactionService _transactionService;
+        private readonly OrderService _orderService;
 
-        public EditModel(OrderService orderService, TransactionService transactionService)
+        public EditModel(TransactionService transactionService, OrderService orderService)
         {
-            _orderService = orderService;
             _transactionService = transactionService;
+            _orderService = orderService;
         }
 
         [BindProperty]
@@ -39,9 +39,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
                 return NotFound();
             }
             Transaction = transaction;
-
-            var orders = await _orderService.GetAllAsync();
-           ViewData["OrderId"] = new SelectList(orders, "Id", "Id");
+           ViewData["OrderId"] = new SelectList(await _orderService.GetAllAsync(), "Id", "Id");
             return Page();
         }
 
@@ -76,7 +74,7 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Transactions
 
         private bool TransactionExists(int id)
         {
-            return _transactionService.GetById(id) != null;
+            return _transactionService.GetById(id).Result != null;
         }
     }
 }
