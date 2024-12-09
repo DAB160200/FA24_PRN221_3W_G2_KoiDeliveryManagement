@@ -1,0 +1,110 @@
+﻿@page
+@model KoiDeliveryManagement.RazorWebApp.Pages.Suppliers.CreateModel
+
+@{
+    ViewData["Title"] = "Create Suppliers";
+}
+
+<h1>Create</h1>
+
+<h4>Supplier</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Supplier.Name" class="control-label"></label>
+                <input asp-for="Supplier.Name" class="form-control" />
+                <span asp-validation-for="Supplier.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Address" class="control-label"></label>
+                <input asp-for="Supplier.Address" class="form-control" />
+                <span asp-validation-for="Supplier.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.ContactNumber" class="control-label"></label>
+                <input asp-for="Supplier.ContactNumber" class="form-control" />
+                <span asp-validation-for="Supplier.ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Email" class="control-label"></label>
+                <input asp-for="Supplier.Email" class="form-control" />
+                <span asp-validation-for="Supplier.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.WebsiteUrl" class="control-label"></label>
+                <input asp-for="Supplier.WebsiteUrl" class="form-control" />
+                <span asp-validation-for="Supplier.WebsiteUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.FaxNumber" class="control-label"></label>
+                <input asp-for="Supplier.FaxNumber" class="form-control" />
+                <span asp-validation-for="Supplier.FaxNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.TaxCode" class="control-label"></label>
+                <input asp-for="Supplier.TaxCode" class="form-control" />
+                <span asp-validation-for="Supplier.TaxCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Description" class="control-label"></label>
+                <input asp-for="Supplier.Description" class="form-control" />
+                <span asp-validation-for="Supplier.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Supplier.OwnerId" class="control-label"></label>
+                <select asp-for="Supplier.OwnerId" class ="form-control" asp-items="ViewBag.OwnerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.CreatedBy" class="control-label"></label>
+                <input asp-for="Supplier.CreatedBy" class="form-control" />
+                <span asp-validation-for="Supplier.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.CreatedTime" class="control-label"></label>
+                <input asp-for="Supplier.CreatedTime" class="form-control" />
+                <span asp-validation-for="Supplier.CreatedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.LastUpdatedBy" class="control-label"></label>
+                <input asp-for="Supplier.LastUpdatedBy" class="form-control" />
+                <span asp-validation-for="Supplier.LastUpdatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.LastUpdateTime" class="control-label"></label>
+                <input asp-for="Supplier.LastUpdateTime" class="form-control" />
+                <span asp-validation-for="Supplier.LastUpdateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.DeletedBy" class="control-label"></label>
+                <input asp-for="Supplier.DeletedBy" class="form-control" />
+                <span asp-validation-for="Supplier.DeletedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.DeletedTime" class="control-label"></label>
+                <input asp-for="Supplier.DeletedTime" class="form-control" />
+                <span asp-validation-for="Supplier.DeletedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Status" class="control-label"></label>
+                <input asp-for="Supplier.Status" class="form-control" />
+                <span asp-validation-for="Supplier.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
