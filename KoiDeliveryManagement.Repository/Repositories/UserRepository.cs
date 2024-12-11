@@ -33,5 +33,12 @@ namespace KoiDeliveryManagement.Repository.Repositories
 
             return users;
         }
+
+        public async Task<User> GetByUserNameAsync(string userName)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == userName);
+
+            return user;
+        }
     }
 }

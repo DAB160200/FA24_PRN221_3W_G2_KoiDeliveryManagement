@@ -6,6 +6,8 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TransactionService>();
 builder.Services.AddScoped<OrderService>();
 
+builder.Services.AddSession();
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -27,6 +29,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapRazorPages();
 
