@@ -1,0 +1,96 @@
+﻿@page
+@model KoiDeliveryManagement.RazorWebApp.Pages.Deliveries.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Delivery</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Delivery.OrderId" class="control-label"></label>
+                <input asp-for="Delivery.OrderId" class="form-control" />
+                <span asp-validation-for="Delivery.OrderId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Delivery.DeliveryStaffId" class="control-label"></label>
+                <input asp-for="Delivery.DeliveryStaffId" class="form-control" />
+                <span asp-validation-for="Delivery.DeliveryStaffId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.Location" class="control-label"></label>
+                <input asp-for="Delivery.Location" class="form-control" />
+                <span asp-validation-for="Delivery.Location" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.EstimatedArrivalDate" class="control-label"></label>
+                <input asp-for="Delivery.EstimatedArrivalDate" class="form-control" type="date" />
+                <span asp-validation-for="Delivery.EstimatedArrivalDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.Description" class="control-label"></label>
+                <textarea asp-for="Delivery.Description" class="form-control"></textarea>
+                <span asp-validation-for="Delivery.Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.DeliveryMethod" class="control-label"></label>
+                <input asp-for="Delivery.DeliveryMethod" class="form-control" />
+                <span asp-validation-for="Delivery.DeliveryMethod" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.TrackingCode" class="control-label"></label>
+                <input asp-for="Delivery.TrackingCode" class="form-control" />
+                <span asp-validation-for="Delivery.TrackingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.PackageType" class="control-label"></label>
+                <input asp-for="Delivery.PackageType" class="form-control" />
+                <span asp-validation-for="Delivery.PackageType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.Feedback" class="control-label"></label>
+                <textarea asp-for="Delivery.Feedback" class="form-control"></textarea>
+                <span asp-validation-for="Delivery.Feedback" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delivery.Rating" class="control-label"></label>
+                <input asp-for="Delivery.Rating" class="form-control" type="number" step="0.1" />
+                <span asp-validation-for="Delivery.Rating" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" asp-for="Delivery.Id" />
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

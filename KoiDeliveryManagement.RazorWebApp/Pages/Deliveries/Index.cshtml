@@ -1,0 +1,71 @@
+﻿@page
+@model KoiDeliveryManagement.RazorWebApp.Pages.Deliveries.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Deliveries</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form method="get">
+    <div class="form-group">
+        <label for="SearchOrderId">Order ID:</label>
+        <input type="text" id="SearchOrderId" name="SearchOrderId" class="form-control" value="@Model.SearchOrderId" />
+    </div>
+    <div class="form-group">
+        <label for="SearchDeliveryStaffId">Delivery Staff ID:</label>
+        <input type="text" id="SearchDeliveryStaffId" name="SearchDeliveryStaffId" class="form-control" value="@Model.SearchDeliveryStaffId" />
+    </div>
+    <div class="form-group">
+        <label for="SearchLocation">Location:</label>
+        <input type="text" id="SearchLocation" name="SearchLocation" class="form-control" value="@Model.SearchLocation" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+    <a asp-page="Index" class="btn btn-secondary">Clear</a>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].OrderId)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].DeliveryStaffId)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].Location)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].EstimatedArrivalDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].DeliveryMethod)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].TrackingCode)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].PackageType)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].Feedback)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].Rating)</th>
+            <th>@Html.DisplayNameFor(model => model.Deliveries[0].Order.Status)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Deliveries)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.OrderId)</td>
+                <td>@Html.DisplayFor(modelItem => item.DeliveryStaffId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                <td>@Html.DisplayFor(modelItem => item.EstimatedArrivalDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.DeliveryMethod)</td>
+                <td>@Html.DisplayFor(modelItem => item.TrackingCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.PackageType)</td>
+                <td>@Html.DisplayFor(modelItem => item.Feedback)</td>
+                <td>@Html.DisplayFor(modelItem => item.Rating)</td>
+                <td>@Html.DisplayFor(modelItem => item.Order.Status)</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.OrderId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.OrderId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
