@@ -14,29 +14,34 @@ namespace KoiDeliveryManagement.RazorWebApp.Pages.Deliveries
     public class CreateModel : PageModel
     {
         private readonly DeliveryService _deliveryService;
+        private readonly OrderService _orderService;
 
-        public CreateModel(DeliveryService deliveryService)
+        public CreateModel(DeliveryService deliveryService, OrderService orderService)
         {
             _deliveryService = deliveryService;
+            _orderService = orderService;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet()
         {
-            //ViewData["OrderId"] = new SelectList(_context.Orders, "Id", "Id");
+            ViewData["OrderId"] = new SelectList(await _orderService.GetAllAsync(), "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public KoiDeliveryManagement.Repository.Model.Delivery Delivery { get; set; } = default!;
+        public Delivery Delivery { get; set; } = default!;
 
+        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            var check = await _deliveryService.Create(Delivery);
-            if (check > 0)
-            {
-                return RedirectToPage("./Index");
-            }
-            return Page();
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
+
+            await _deliveryService.Create(Delivery);
+
+            return RedirectToPage("./Index");
         }
     }
 }

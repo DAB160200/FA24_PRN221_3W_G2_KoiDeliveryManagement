@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TransactionService>();
 builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<DeliveryService>();
 
 builder.Services.AddSession();
 
